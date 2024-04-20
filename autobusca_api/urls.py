@@ -9,7 +9,8 @@ from views.imagens_view import (ImagemListCreateAPIView,
                                 ListaImagemView)
 from views.teste_view import TesteView
 from views.veiculo_localizacao_view import (VeiculoLocalizacaoAPIView,
-                                            VeiculoLocalizacaoByIdView)
+                                            VeiculoLocalizacaoByIdView,
+                                            VeiculoLocalizacaoMainAPIView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('api/carregar-imagens/<str:placa>/',
          carregar_imagens, name='imagens_por_placa'),
     path('api/listar-placas', ListaImagemView.as_view(), name='listar-placas'),
+    path('api/veiculo-detail-paginado', VeiculoLocalizacaoMainAPIView.as_view(), name='veiculo-detail-paginado'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

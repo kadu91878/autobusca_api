@@ -2,7 +2,7 @@ from rest_framework import serializers
 from models.localizacao_model import Localizacao
 from models.veiculos_model import Veiculo
 
-class VeiculoLocalizacaoSerializer(serializers.Serializer):
+class VeiculoComLocalizacaoSerializer(serializers.Serializer):
     placa_carro = serializers.CharField(max_length=20)
     nome_veiculo = serializers.CharField(max_length=100, allow_null=True)
     modelo = serializers.CharField(max_length=50, allow_null=True)
@@ -14,30 +14,28 @@ class VeiculoLocalizacaoSerializer(serializers.Serializer):
     tipo_combustivel = serializers.CharField(max_length=20, allow_null=True)
     categoria = serializers.CharField(max_length=30, allow_null=True)
     quantidade_portas = serializers.IntegerField(allow_null=True)
-    id_localizacao = serializers.IntegerField()
+    
     endereco = serializers.CharField(max_length=255, allow_null=True)
     cidade = serializers.CharField(max_length=100, allow_null=True)
     estado = serializers.CharField(max_length=100, allow_null=True)
     pais = serializers.CharField(max_length=100, allow_null=True)
 
     def to_representation(self, instance):
-        # Construa a representação personalizada dos dados
         representation = {
-            'placa_carro': instance.placa_carro,
-            'nome_veiculo': instance.nome_veiculo,
-            'modelo': instance.modelo,
-            'preco': instance.preco,
-            'quilometragem': instance.quilometragem,
-            'tipo_cambio': instance.tipo_cambio,
-            'ano_modelo': instance.ano_modelo,
-            'cor': instance.cor,
-            'tipo_combustivel': instance.tipo_combustivel,
-            'categoria': instance.categoria,
-            'quantidade_portas': instance.quantidade_portas,
-            'id_localizacao': instance.id_localizacao,
-            'endereco': instance.endereco,
-            'cidade': instance.cidade,
-            'estado': instance.estado,
-            'pais': instance.pais,
+            'placa_carro': instance[0],
+            'nome_veiculo': instance[1],
+            'modelo': instance[2],
+            'preco': instance[3],
+            'quilometragem': instance[4],
+            'tipo_cambio': instance[5],
+            'ano_modelo': instance[6],
+            'cor': instance[7],
+            'tipo_combustivel': instance[8],
+            'categoria': instance[9],
+            'quantidade_portas': instance[10],
+            'endereco': instance[11],
+            'cidade': instance[12],
+            'estado': instance[13],
+            'pais': instance[14],
         }
         return representation
