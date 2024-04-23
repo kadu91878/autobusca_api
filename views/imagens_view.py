@@ -1,6 +1,5 @@
-from rest_framework import generics
-
 from django.db import connection
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -22,7 +21,7 @@ class ListaImagemView(APIView):
     def get(self, request,):
         with connection.cursor() as cursor:
             cursor.execute(
-                """select distinct i.placa_carro  from imagens i 
+                """select distinct i.placa_carro  from imagens i order by i.placa_carro 
                 """,
             )
 

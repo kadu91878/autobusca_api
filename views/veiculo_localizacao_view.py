@@ -62,7 +62,8 @@ v.categoria, v.quantidade_portas,
 l.endereco, l.cidade, l.estado, l.pais 
 from veiculo v 
 left join localizacao l 
-on l.id_localizacao = v.id_localizacao 
+on l.id_localizacao = v.id_localizacao
+order by v.placa_carro 
                     limit 5 
                 """,
             )
