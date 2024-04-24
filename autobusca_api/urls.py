@@ -17,7 +17,7 @@ urlpatterns = [
     path('api/veiculo-detail', VeiculoLocalizacaoAPIView.as_view(),
          name='veiculo-detail'),
     path('api/teste', TesteView.as_view(), name='teste'),
-    path('api/veiculo-detail/<int:id>',
+    path('api/veiculo-detail/<str:id>',
          VeiculoLocalizacaoByIdView.as_view(), name='veiculo-detail-id'),
     path('api/imagens', ImagemListCreateAPIView.as_view(), name='imagens'),
     path('api/imagens/<int:pk>',

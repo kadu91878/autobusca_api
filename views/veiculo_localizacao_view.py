@@ -40,7 +40,7 @@ l.endereco, l.cidade, l.estado, l.pais
 from veiculo v 
 left join localizacao l 
 on l.id_localizacao = v.id_localizacao 
-                    where v.id_localizacao = %s
+                    where v.placa_carro = %s
                 """,
                 [id]
             ),
