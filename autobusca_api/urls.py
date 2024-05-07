@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/imagens', ImagemListCreateAPIView.as_view(), name='imagens'),
     path('api/imagens/<int:pk>',
          ImagemRetrieveUpdateDestroyAPIView.as_view(), name='imagens-id'),
-    path('api/carregar-imagens/<str:placa>/',
+    path('api/carregar-imagens/',
          carregar_imagens, name='imagens_por_placa'),
     path('api/listar-placas', ListaImagemView.as_view(), name='listar-placas'),
     path('api/veiculo-detail-paginado', VeiculoLocalizacaoMainAPIView.as_view(), name='veiculo-detail-paginado'),
